@@ -9,4 +9,8 @@
   "author": "alex.zhang",
   "license": "MIT",
   "homepage": "https://github.com/alex-zhang/nesting-reducer",
+  "dependencies": {
+    "redux": "^3.3.1",
+    "redux-actions": "^0.9.1"
+  }
 }
