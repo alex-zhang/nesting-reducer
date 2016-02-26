@@ -3,7 +3,7 @@
 let combineReducers = require('redux').combineReducers;
 let handleActions = require('redux-actions')
 
-exports.nestCombineReducers = nestCombineReducers(schema, keyValidator) {
+exports.nestCombineReducers = function nestCombineReducers(schema, keyValidator) {
   let results = {};
 
   let keyCount = 0;
