@@ -32,21 +32,26 @@ exports.nestCombineReducers = function nestCombineReducers(schema, keyValidator)
 }
 
 //Reducor == Reduce Creator
-exports.handleActionsReducor = function handleActionsReducor(defaultState, handleActionsObject) {
+exports.handleActionsReducor = function(defaultState, handleActionsObject) {
   return handleActions(handleActionsObject, defaultState);
 }
 
-exports.defaultStateReducor = function defaultStateReducor(defaultState, reducer) {
-  return (state = defaultState, action) => reducer(state, action);
+exports.defaultStateReducor = function(defaultState, reducer) {
+  return function(state, action) {
+    if(state === undefined) state = defaultState;
+    return reducer(state, action);
+  }
 }
 
-exports.valueReducor = function valueReducor(val) {
-  return (state, action) => val;
+exports.valueReducor = function(val) {
+  return function(state, action) {
+    return val;
+  }
 }
 
-exports.nullReducer = (state, action) => null;
-exports.emptyStringdReducer = (state, action) => '';
-exports.falseReducer = (state, action) => false;
-exports.trueReducer = (state, action) => true;
-exports.actionPayloadReducer =  (state, action) => action.payload;
-exports.stateReducer =  (state, action) => state;
+exports.nullReducer = function(state, action) {return null};
+exports.emptyStringdReducer = function(state, action) {return ''};
+exports.falseReducer = function(state, action) {return false};
+exports.trueReducer = function(state, action) {return true};
+exports.actionPayloadReducer = function(state, action) {return action.payload};
+exports.stateReducer = function(state, action) {return state};
