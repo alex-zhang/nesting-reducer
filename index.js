@@ -1,8 +1,10 @@
-import {combineReducers} from 'redux';
-import {handleActions} from 'redux-actions';
+'use strict';
 
-export function nestCombineReducers(schema, keyValidator) {
-  var results = {};
+let combineReducers = require('redux').combineReducers;
+let handleActions = require('redux-actions')
+
+exports.nestCombineReducers = nestCombineReducers(schema, keyValidator) {
+  let results = {};
 
   let keyCount = 0;
 
@@ -30,21 +32,21 @@ export function nestCombineReducers(schema, keyValidator) {
 }
 
 //Reducor == Reduce Creator
-export function handleActionsReducor(defaultState, handleActionsObject) {
+exports.handleActionsReducor = function handleActionsReducor(defaultState, handleActionsObject) {
   return handleActions(handleActionsObject, defaultState);
 }
 
-export function defaultStateReducor(defaultState, reducer) {
+exports.defaultStateReducor = function defaultStateReducor(defaultState, reducer) {
   return (state = defaultState, action) => reducer(state, action);
 }
 
-export function valueReducor(val) {
+exports.valueReducor = function valueReducor(val) {
   return (state, action) => val;
 }
 
-export const nullReducer = (state, action) => null;
-export const emptyStringdReducer = (state, action) => '';
-export const falseReducer = (state, action) => false;
-export const trueReducer = (state, action) => true;
-export const actionPayloadReducer =  (state, action) => action.payload;
-export const stateReducer =  (state, action) => state;
+exports.nullReducer = (state, action) => null;
+exports.emptyStringdReducer = (state, action) => '';
+exports.falseReducer = (state, action) => false;
+exports.trueReducer = (state, action) => true;
+exports.actionPayloadReducer =  (state, action) => action.payload;
+exports.stateReducer =  (state, action) => state;
