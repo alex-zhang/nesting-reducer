@@ -1,6 +1,6 @@
 {
   "name": "nesting-reducer",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "nesting-reducer is used for combine reducer as a nesting structure",
   "main": "index.js",
   "scripts": {

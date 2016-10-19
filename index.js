@@ -27,7 +27,7 @@ exports.nestCombineReducers = function nestCombineReducers(schema, keyValidator)
   }
 
   return keyCount === 0 ?
-    nullReducer :
+    exports.nullReducer :
     combineReducers(results);
 }
 
