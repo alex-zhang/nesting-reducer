@@ -1,7 +1,7 @@
 'use strict';
 
 let combineReducers = require('redux').combineReducers;
-let handleActions = require('redux-actions')
+let handleActions = require('redux-actions').handleActions;
 
 exports.nestCombineReducers = function nestCombineReducers(schema, keyValidator) {
   let results = {};
